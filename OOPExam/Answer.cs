@@ -8,16 +8,15 @@ namespace OOPExam
 {
     class Answer
     {
-        int Id { get; set; }
-        int Text { get; set; }
-        public Answer(int id, int text)
+        public int Id { get;  set; }
+        public string Text { get;  set; } 
+
+        public Answer(int id = 0, string text = "")
         {
-            this.Id = id;
-            this.Text = text;
+            Id = id;
+            Text = text ?? "";
         }
-        public override string ToString()
-        {
-            return $"AnswerID {Id} - AnswerText {Text}";
-        }
+
+        public override string ToString() => $"AnswerID {Id} - AnswerText {Text}";
     }
 }

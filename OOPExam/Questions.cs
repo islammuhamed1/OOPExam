@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace OOPExam
 {
-    abstract class Questions
+    abstract class Questions : IQuestion
     {
+        public override string ToString() => $"Header: {Header}\nBody: {Body}\nMark: {Mark}";
+
         public abstract string Header { get; }
-         string Body { get; set; }
-         int Mark { get; set; }
-         List<Answer> Answers { get; set; }
-         Answer RightAnswers { get; set; }
-         Answer UserAnswers { get; set; }
-        public Questions(string body, int mark, List<Answer> answers, Answer rightAnswers, Answer userAnswers)
-        {
-            Body = body;
-            Mark = mark;
-            Answers = answers;
-            RightAnswers = rightAnswers;
-            UserAnswers = userAnswers;
-        }
+        public string Body { get; set; } = string.Empty;
+        public int Mark { get; set; }
+        public List<Answer> Answers { get; private set; } = new();
+        public Answer RightAnswer { get; set; } = new();
+        public Answer UserAnswer { get; set; } = new(); 
+
+        public abstract void AddQuestion();
+
     }
 }
