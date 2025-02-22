@@ -15,7 +15,7 @@ namespace OOPExam
             Questions.Clear(); 
             for (int i = 0; i < NumberOfQuestions; i++)
             {
-                MCQQuestions question = new MCQQuestions();
+                Questions question = new MCQQuestions(); 
                 question.AddQuestion();
                 Questions.Add(question);
             }
