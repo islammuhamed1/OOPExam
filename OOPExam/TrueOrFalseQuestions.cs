@@ -31,6 +31,7 @@ namespace OOPExam
             RightAnswer = Answers[rightAnswerId - 1];
 
             Console.Clear();
+           
         }
     }
 }

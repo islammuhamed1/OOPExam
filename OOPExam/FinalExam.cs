@@ -13,11 +13,12 @@ namespace OOPExam
 
         public override void GenerateListOfQuestions()
         {
+            Questions.Clear();
             for (int i = 0; i < NumberOfQuestions; i++)
             {
-                int choice = InputIntValidator.ValidateInt("Choose: 1 for MCQ, 2 for True/False", 1, 2);
-                Questions.Add(choice == 1 ? new MCQQuestions() : new TrueOrFalseQuestions());
-                Questions[i].AddQuestion();
+                Questions question = new MCQQuestions(); 
+                question.AddQuestion(); 
+                Questions.Add(question);
             }
         }
 
@@ -41,6 +42,7 @@ namespace OOPExam
 
             Console.WriteLine($"Your Grade: {grade}/{totalMarks}");
             Console.WriteLine($"Total Marks: {totalMarks}");
+
         }
     }
 }
