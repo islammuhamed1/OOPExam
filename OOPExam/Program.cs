@@ -17,8 +17,10 @@ namespace OOPExam
                 stopwatch.Stop();
                 Console.WriteLine($"Time Elapsed: {stopwatch.Elapsed}");
             }
+            Console.WriteLine("Press Enter to exit");
+            Console.ReadLine();
         }
-
+      
     
 
         private static char ValidateChar(string message)

@@ -13,22 +13,30 @@ namespace OOPExam
         public override void AddQuestion()
         {
             Console.WriteLine(Header);
+
             do
             {
-                Console.WriteLine("Enter Question Body:");
-                Body = Console.ReadLine() ?? "";
-            } while (string.IsNullOrWhiteSpace(Body));
+                Console.Write("Enter Question Body: ");
+                Body = Console.ReadLine()?.Trim();
+            } while (string.IsNullOrWhiteSpace(Body)); 
 
             Mark = InputIntValidator.ValidateInt("Enter Question Mark:", 1);
 
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine($"Enter Answer {i + 1}:");
-                Answers.Add(new Answer(i + 1, Console.ReadLine() ?? ""));
+                string checkNulls;
+                do
+                {
+                    Console.Write($"Enter Answer {i + 1}: ");
+                    checkNulls = Console.ReadLine()?.Trim();
+                } while (string.IsNullOrWhiteSpace(checkNulls)); 
+
+                Answers.Add(new Answer(i + 1, checkNulls));
             }
 
             int rightAnswerId = InputIntValidator.ValidateInt("Enter Right Answer (1, 2, or 3):", 1, 3);
             RightAnswer = Answers[rightAnswerId - 1];
+
             Console.Clear();
         }
 
